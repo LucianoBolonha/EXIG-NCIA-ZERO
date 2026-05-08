@@ -2,17 +2,13 @@ import { render, screen } from "@testing-library/react";
 import HomePage from "@/app/page";
 
 describe("HomePage", () => {
-  it("renders the upload flow shell", () => {
+  it("renders upload instructions and submit action", () => {
     render(<HomePage />);
 
-    expect(
-      screen.getByRole("heading", {
-        name: /analise sua nota devolutiva/i,
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/envie um pdf, png ou jpg/i)).toBeInTheDocument();
 
     expect(
-      screen.getByRole("button", { name: /selecionar documento/i }),
+      screen.getByRole("button", { name: /processar documento/i }),
     ).toBeInTheDocument();
   });
 });
